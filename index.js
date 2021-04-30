@@ -4,6 +4,8 @@ let { readdirSync } = require('fs');
 let Eris = require('eris');
 const ErrorHandler = require('./ErrorHandler');
 
+//t
+
 let token = config.testMode ? config.testToken : config.testToken;
 
 let client = new Eris.Client(token, {
