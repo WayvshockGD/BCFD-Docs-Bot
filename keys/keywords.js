@@ -187,7 +187,7 @@ module.exports = [
     },
     {
         name: '$messageAfterCommand',
-        description: 'Inserts the message after command. (not like $message)',
+        description: 'Inserts the message after the command. (not like $message)',
         returns: 'Message | String',
         format: 'message'
     },

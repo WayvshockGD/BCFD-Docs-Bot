@@ -1,3 +1,4 @@
+const actions = require("./actions");
 const commandTypes = require("./commandTypes");
 const keywords = require("./keywords")
 
@@ -9,6 +10,7 @@ module.exports = class Manager {
     constructor(arg) {
         this.keywords = keywords;
         this.commandTypes = commandTypes;
+        this.actions = actions;
         this.args = arg;
     }
 
@@ -18,5 +20,9 @@ module.exports = class Manager {
 
     findType() {
         return this.commandTypes.search.find(key => key.name === this.args);
+    }
+
+    findAction() {
+        return this.actions.search.find(key => key.name === this.args);
     }
 }

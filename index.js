@@ -4,7 +4,9 @@ let { readdirSync } = require('fs');
 let Eris = require('eris');
 const ErrorHandler = require('./ErrorHandler');
 
-let client = new Eris.Client(config.token, {
+let token = config.testMode ? config.testToken : config.testToken;
+
+let client = new Eris.Client(token, {
     compress: true,
     messageLimit: 40,
     autoreconnect: true,
@@ -19,6 +21,10 @@ let Errors = new ErrorHandler(client);
 client.once('ready', () => {
     console.log(`[INFO] ${chalk.green(`client started up on ${new Date()}`)}`);
     console.log(`[INFO] ${chalk.green(`Registered ${client.commands.size} Commands`)}`);
+
+    if (token) {
+        console.log(`[INFO] ${chalk.yellow(`Testing client is online now`)}`);
+    };
 })
 
 client.commands = new Eris.Collection();
